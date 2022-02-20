@@ -1,0 +1,16 @@
+@use "variables" as var;
+/* width */
+::-webkit-scrollbar {
+    width: 1rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var.$c-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var.$c-light;
+    border: 1px solid var.$c-light;
+    border-radius: 0.5rem;
+  }

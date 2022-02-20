@@ -1,0 +1,14 @@
+@use "variables" as var;
+*,
+*::after,
+*::before {
+    font-family: sans-serif;
+    color: var.$c-light;
+    font-size: 16px;
+}
+.title{
+    font-weight: bold;
+}
+span{
+    color: var.$c-dark
+}

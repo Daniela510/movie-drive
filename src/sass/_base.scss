@@ -1,0 +1,16 @@
+@use "variables" as var;
+@use "mixins";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+/*  this make the a-inner-links scroll not jump*/
+  scroll-behavior: smooth; 
+}
+ul, li{
+    text-decoration: none;
+    list-style: none;
+  }
+  

@@ -1,0 +1,79 @@
+@use "variables" as var;
+header {
+  z-index: 8;
+  position: fixed;
+  height: 100vh;
+  width: 3rem;
+  background-color: var.$c-red;
+  padding-bottom: 3px;
+  border-right: 1px solid var.$c-dark;
+  pointer-events: all;
+}
+.nav {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  &__item {
+    padding: 10px;
+    min-width: 5rem;
+    height: 2vh;
+    color: var.$c-dark;
+    cursor: pointer;
+    transform: rotate(-90deg) translateY(-1.8rem);
+    transition: 0.5s ease;
+    &--active{
+      font-weight: bold;
+    }
+  }
+  &__item:not(:last-child) {
+    margin-right: 1.2rem;
+  }
+
+}
+.extension{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 96vh;
+  background-color: var.$c-red;
+  width: 16rem;
+  margin-left: 3rem;
+  padding: 1rem;
+  transition: 1s;
+  border: 1px solid var.$c-dark;
+  border-radius: 2rem;
+  &__child{
+    color: var.$c-dark !important;
+    margin-top: 3px;
+    margin-left: 3rem;
+  }
+  &__child li{
+  background-color: var.$c-dark;
+  border-radius: 1rem;
+  margin: 0.2rem;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+  }
+  &__child li:hover{
+    transform: scale(1.02);
+  }
+}
+.extension--hidden{
+  z-index: 1;
+  transform: translateX(-19rem);
+}
+.extension--active{
+  z-index: 1;
+  transform: translateX(-3rem);
+}
+.style-prop{
+  color:rgba(255,0,0,0) !important;
+}
+.extension input{
+  padding: 2px 5px;
+  border-radius: 1rem;
+  border: 1px solid var.$c-dark;
+  background-color: var.$c-light;
+}

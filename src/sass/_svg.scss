@@ -1,0 +1,18 @@
+@use "variables" as var;
+
+.ticket{
+    
+    &__big{
+        fill: var.$c-light;
+    }
+    &__text{
+        transform: translate(94.04px 150.77px);
+        font-size:157.87px;
+        font-family:sans-serif;
+    }
+    &__rect{
+        fill:none;
+        stroke:var.$c-dark;
+        stroke-miterlimit:10
+    }
+}

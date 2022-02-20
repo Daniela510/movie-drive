@@ -1,47 +1,9 @@
-@use "variables" as var;
-@use "mixins";
-
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-/*  this make the a-inner-links scroll not jump*/
-  scroll-behavior: smooth; 
-}
-header {
-    z-index: 10;
-    position: fixed;
-    width: 100%;
-    background-color: var.$c-light;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var.$c-dark;
-  }
-  .logo {
-    padding: 10px;
-  }
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  
-    @include mixins.respond(medium) {
-     justify-content: flex-end;
-   }
-    &__item {
-      padding: 10px;
-      width: 5rem;
-      cursor: pointer;
-    }
-    &__item a {
-      transition: 0.5s ease;
-    }
-    &__item a:hover {
-      color: var.$c-gold;
-    }
-    &__item:not(:last-child) {
-      margin-right: 1.2rem;
-    }
-  }
+@use "base";
+@use "header";
+@use "landing";
+@use "list";
+@use "typography";
+@use "scrollbar";
+@use "svg";
+@use "logoLine";
+@use "buttons";

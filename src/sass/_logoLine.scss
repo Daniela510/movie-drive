@@ -1,0 +1,21 @@
+@use "variables" as var;
+.line{
+    width: calc(100vw - 3rem);
+    position: relative;
+    left: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.line span{
+    max-width: 25rem;
+    padding: 0.2rem 0.5rem;
+    margin: 5px;
+    border:  1px solid var.$c-light;
+    border-radius: 0.8rem;
+    background-color: var.$c-dark;
+    color: var.$c-dark;
+}
+.asterix{
+    color: var.$c-light !important;
+}

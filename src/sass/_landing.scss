@@ -1,0 +1,11 @@
+@use "variables" as var;
+@use "mixins";
+.App{
+    background-color: var.$c-dark;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

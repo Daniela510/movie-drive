@@ -1,0 +1,59 @@
+@use "variables" as var;
+@use "mixins";
+.List {
+    background-color: var.$c-dark;
+    display: flex;
+    width: calc(100vw - 3rem);
+    position: relative;
+    left: 3rem;
+    padding-left: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    height: calc(100vh - 15px - 5rem);
+    &__movie{
+        padding: 1rem;
+        &__line{
+            margin: 0.7rem 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        &__line span{
+            min-width:2rem ;
+            max-width: 25rem;
+            height: 1.1rem;
+            padding: 0.2rem 0.5rem;
+            margin: 5px;
+            border:  1px solid var.$c-light;
+            border-radius: 0.8rem;
+            background-color: var.$c-light;
+        }
+        &__box{
+            position: relative;
+            &__img{
+                border: 1px solid var.$c-light;
+                border-radius:7px;
+                transition: 0.7s ease-in-out;
+            }
+            &__description{
+                display: none;
+                position:absolute;
+                top:0;
+                margin: 1.5rem;
+                width: 40rem;
+                transition: 0.5s ease-in-out;
+                pointer-events: none;
+            }
+            &__description p{
+                margin: 0.5rem 0;
+            }
+            &__img:hover{
+                filter: blur(20px) brightness(70%);
+            }
+            &__img:hover + &__description{
+                display: block;
+            }
+
+        }
+    }
+}

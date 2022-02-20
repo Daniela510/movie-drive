@@ -2,8 +2,7 @@ import React from "react";
 import { menuClose } from "../../redux";
 import { connect } from "react-redux";
 
-const ExtendedHeader = ({ menuState, menuClose }) => {
-  // onMouseLeave={()=>menuClose()}
+const ExtendedHeader = ({ menuState, menuClose, handleChange }) => {
   return (
     <>
       {menuState ? (
@@ -12,6 +11,7 @@ const ExtendedHeader = ({ menuState, menuClose }) => {
             className="extension__child"
             type="text"
             defaultValue="Search by title"
+            onChange={()=>handleChange()}
           />
 
           <ul className="extension__child">
@@ -37,6 +37,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     menuClose: () => dispatch(menuClose()),
+    handleChange: () => dispatch(menuClose()),
   };
 };
 

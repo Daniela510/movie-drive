@@ -20,11 +20,14 @@ header {
     height: 2vh;
     color: var.$c-dark;
     cursor: pointer;
-    transform: rotate(-90deg) translateY(-1.8rem);
+    transform: rotate(-90deg) translateY(-1.8rem) ;
     transition: 0.5s ease;
     &--active{
       font-weight: bold;
     }
+  }
+  &__item:hover{
+    transform: rotate(-90deg) translateY(-1.5rem);
   }
   &__item:not(:last-child) {
     margin-right: 1.2rem;

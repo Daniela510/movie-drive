@@ -41,6 +41,9 @@ header {
 .nav__item--active {
   font-weight: bold;
 }
+.nav__item:hover {
+  transform: rotate(-90deg) translateY(-1.5rem);
+}
 .nav__item:not(:last-child) {
   margin-right: 1.2rem;
 }
@@ -234,6 +237,7 @@ span {
 
 .purchase {
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .purchase:hover {

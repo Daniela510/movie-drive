@@ -3,24 +3,25 @@ import { menuClose } from "../../redux";
 import { connect } from "react-redux";
 
 const ExtendedHeader = ({ menuState, menuClose, handleChange }) => {
-  return (
+    // onMouseLeave={()=>menuClose()}
+    return (
     <>
       {menuState ? (
         <div className="extension extension--active"  onMouseLeave={()=>menuClose()}>
-          <input
-            className="extension__child"
-            type="text"
-            defaultValue="Search by title"
-            onChange={()=>handleChange()}
-          />
-
+            <ul className="extension__child">
+            <li>About us</li>
+            <li>Request a movie</li>
+          </ul>
           <ul className="extension__child">
             <li>Rom-Com Monday</li>
             <li>Docu Wednesday</li>
             <li>Horror Thrusday</li>
           </ul>
-          <div className="style-prop" >Style prop</div>
-          <div className="style-prop" >Style prop</div>
+          <ul className="extension__child">
+            <li>Classic</li>
+            <li>Inverted Film</li>
+            <li>Pink</li>
+          </ul>
         </div>
       ) : (
         <div className="extension extension--hidden" />

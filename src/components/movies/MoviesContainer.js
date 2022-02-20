@@ -8,13 +8,27 @@ import TitleLine from "./TitleLine";
 
 const MoviesContainer = ({ movieList, fetchMovies }) => {
   const [searchedData, setSearchedData] = useState([]);
+  const [keyword, setKeyword] = useState("Search by title");
 
   useEffect(() => {
     fetchMovies();
-  },[]);
-  useEffect(()=>{
+  }, []);
+  useEffect(() => {
     setSearchedData(movieList.movies);
-  },[movieList])
+  }, [movieList]);
+
+  const handleChange = (evt) => {
+  setKeyword(evt.target.value)
+    let searchedData = movieList.movies.filter((movie) => {
+      return (
+        movie.title
+          .toLowerCase()
+          .search(evt.target.value.toLocaleLowerCase()) !== -1
+      );
+    });
+    setSearchedData(searchedData);
+  };
+
   return movieList.loading ? (
     <h2>Loading...</h2>
   ) : movieList.error ? (
@@ -22,7 +36,7 @@ const MoviesContainer = ({ movieList, fetchMovies }) => {
   ) : (
     <>
       {console.log({ movieList })}
-      <LogoLine top={true} />
+      <LogoLine top={true} handleChange={handleChange} keyword={keyword} />
       <div className="List">
         {console.log("fuck me wtf ", { searchedData })}
         {movieList &&

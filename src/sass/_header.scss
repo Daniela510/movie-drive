@@ -10,35 +10,36 @@ header {
   pointer-events: all;
 }
 .nav {
-  height: 100vh;
+  height: 97vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  align-content: space-between;
   &__item {
     padding: 10px;
     min-width: 5rem;
-    height: 2vh;
+    height: 5rem;
     color: var.$c-dark;
     cursor: pointer;
-    transform: rotate(-90deg) translateY(-1.8rem) ;
+    transform: rotate(-90deg) translateY(0.2rem) ;
     transition: 0.5s ease;
     &--active{
       font-weight: bold;
     }
   }
   &__item:hover{
-    transform: rotate(-90deg) translateY(-1.5rem);
+    transform: rotate(-90deg) translateY(0.5rem);
   }
-  &__item:not(:last-child) {
-    margin-right: 1.2rem;
-  }
+  // &__item:not(:last-child) {
+  //   margin-right: 1.2rem;
+  // }
 
 }
 .extension{
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 96vh;
   background-color: var.$c-red;
   width: 16rem;
@@ -72,11 +73,5 @@ header {
   transform: translateX(-3rem);
 }
 .style-prop{
-  color:rgba(255,0,0,0) !important;
-}
-.extension input{
-  padding: 2px 5px;
-  border-radius: 1rem;
-  border: 1px solid var.$c-dark;
-  background-color: var.$c-light;
+  // color:rgba(255,0,0,0) !important;
 }

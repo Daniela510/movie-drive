@@ -24,35 +24,33 @@ header {
 }
 
 .nav {
-  height: 100vh;
+  height: 97vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  align-content: space-between;
 }
 .nav__item {
   padding: 10px;
   min-width: 5rem;
-  height: 2vh;
+  height: 5rem;
   color: #1a1515;
   cursor: pointer;
-  transform: rotate(-90deg) translateY(-1.8rem);
+  transform: rotate(-90deg) translateY(0.2rem);
   transition: 0.5s ease;
 }
 .nav__item--active {
   font-weight: bold;
 }
 .nav__item:hover {
-  transform: rotate(-90deg) translateY(-1.5rem);
-}
-.nav__item:not(:last-child) {
-  margin-right: 1.2rem;
+  transform: rotate(-90deg) translateY(0.5rem);
 }
 
 .extension {
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 96vh;
   background-color: #eb361a;
   width: 16rem;
@@ -86,17 +84,6 @@ header {
 .extension--active {
   z-index: 1;
   transform: translateX(-3rem);
-}
-
-.style-prop {
-  color: rgba(255, 0, 0, 0) !important;
-}
-
-.extension input {
-  padding: 2px 5px;
-  border-radius: 1rem;
-  border: 1px solid #1a1515;
-  background-color: #EDE9E9;
 }
 
 .App {
@@ -212,6 +199,13 @@ span {
   stroke-miterlimit: 10;
 }
 
+.searchIcon {
+  fill: none;
+  stroke: #EDE9E9;
+  stroke-width: 36;
+  stroke-linecap: round;
+}
+
 .line {
   width: calc(100vw - 3rem);
   position: relative;
@@ -244,6 +238,14 @@ span {
   background-color: #F6AA1C;
   border: 1px solid #F6AA1C;
   transform: scale(1.03);
+}
+
+input {
+  padding: 2px 5px;
+  border-radius: 1rem;
+  border: 1px solid #1a1515;
+  background-color: #EDE9E9;
+  color: #1a1515;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,7 +18,15 @@
 }
 .searchIcon{
     fill: none;
-    stroke: var.$c-light;
     stroke-width: 36;
     stroke-linecap: round;
+}
+.searchIcon--classic{
+    stroke: var.$c-light;
+}
+.searchIcon--gold{
+    stroke: var.$c-dark;
+}
+.searchIcon--inverse{
+    stroke: var.$c-dark;
 }

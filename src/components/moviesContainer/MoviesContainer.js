@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchMovies } from "../../redux";
+import ExtendedHeader from "../header/ExtendedHeader";
 import DateLine from "./DateLine";
 import ImageBox from "./ImageBox";
 import LogoLine from "./LogoLine";
 import TitleLine from "./TitleLine";
 
-const MoviesContainer = ({ movieList, fetchMovies }) => {
+const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
   const [searchedData, setSearchedData] = useState([]);
   const [keyword, setKeyword] = useState("Search by title");
+  const baseNameList = "List List--"
+  const classNameList = baseNameList.concat(theme.theme)
 
   useEffect(() => {
     fetchMovies();
@@ -18,7 +21,7 @@ const MoviesContainer = ({ movieList, fetchMovies }) => {
   }, [movieList]);
 
   const handleChange = (evt) => {
-  setKeyword(evt.target.value)
+    setKeyword(evt.target.value);
     let searchedData = movieList.movies.filter((movie) => {
       return (
         movie.title
@@ -28,6 +31,20 @@ const MoviesContainer = ({ movieList, fetchMovies }) => {
     });
     setSearchedData(searchedData);
   };
+  const filterMovies = (clickedDay) => {
+      console.log(clickedDay);
+    let filteredData = movieList.movies.filter((movie) => {
+        return (
+          movie.day
+            .toLowerCase()
+            .search(clickedDay.toLocaleLowerCase()) !== -1
+        );
+    });
+    setSearchedData(filteredData);
+  };
+  const allMovies = () => {
+      setSearchedData(movieList.movies)
+  };
 
   return movieList.loading ? (
     <h2>Loading...</h2>
@@ -35,9 +52,10 @@ const MoviesContainer = ({ movieList, fetchMovies }) => {
     <h2>{movieList.error}</h2>
   ) : (
     <>
+      <ExtendedHeader filterMovies={filterMovies} allMovies={allMovies}/>
       {console.log({ movieList })}
       <LogoLine top={true} handleChange={handleChange} keyword={keyword} />
-      <div className="List">
+      <div className={classNameList}>
         {console.log("fuck me wtf ", { searchedData })}
         {movieList &&
           searchedData &&
@@ -57,6 +75,7 @@ const MoviesContainer = ({ movieList, fetchMovies }) => {
 const mapStateToProps = (state) => {
   return {
     movieList: state.movieList,
+    theme: state.themeState
   };
 };
 const mapDispatchToProps = (dispatch) => {

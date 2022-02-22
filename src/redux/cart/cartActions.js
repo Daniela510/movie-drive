@@ -1,0 +1,14 @@
+import { ADD_CART, REMOVE_CART } from "./cartTypes";
+
+export const addItem = movie => {
+    console.log(movie);
+  return {
+    type: ADD_CART,
+    payload: movie
+  };
+};
+export const removeItem = () => {
+  return {
+    type: REMOVE_CART,
+  };
+};

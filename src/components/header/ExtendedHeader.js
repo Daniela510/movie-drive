@@ -1,26 +1,43 @@
 import React from "react";
-import { menuClose } from "../../redux";
+import { makeClassic, makeInverse, makeGold, menuClose } from "../../redux";
 import { connect } from "react-redux";
 
-const ExtendedHeader = ({ menuState, menuClose, handleChange }) => {
-    // onMouseLeave={()=>menuClose()}
-    return (
+const ExtendedHeader = ({
+  menuState,
+  menuClose,
+  filterMovies,
+  allMovies,
+  makeClassic,
+  makeGold,
+  makeInverse,
+}) => {
+  return (
     <>
       {menuState ? (
-        <div className="extension extension--active"  onMouseLeave={()=>menuClose()}>
-            <ul className="extension__child">
+        <div
+          className="extension extension--active"
+          onMouseLeave={() => menuClose()}
+        >
+          <ul className="extension__child">
             <li>About us</li>
             <li>Request a movie</li>
           </ul>
           <ul className="extension__child">
-            <li>Rom-Com Monday</li>
-            <li>Docu Wednesday</li>
-            <li>Horror Thrusday</li>
+            <li onClick={allMovies}>All Movies</li>
+            <li onClick={() => filterMovies("Rom-Com Monday")}>
+              Rom-Com Monday
+            </li>
+            <li onClick={() => filterMovies("Docu Wednesday")}>
+              Docu Wednesday
+            </li>
+            <li onClick={() => filterMovies("Horror Thursday")}>
+              Horror Thursday
+            </li>
           </ul>
           <ul className="extension__child">
-            <li>Classic</li>
-            <li>Inverted Film</li>
-            <li>Pink</li>
+            <li onClick={makeClassic}>Classic</li>
+            <li onClick={makeInverse}>Inverted Film</li>
+            <li onClick={makeGold}>Gold</li>
           </ul>
         </div>
       ) : (
@@ -38,7 +55,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     menuClose: () => dispatch(menuClose()),
-    handleChange: () => dispatch(menuClose()),
+    makeClassic: () => dispatch(makeClassic()),
+    makeGold: () => dispatch(makeGold()),
+    makeInverse: () => dispatch(makeInverse()),
   };
 };
 

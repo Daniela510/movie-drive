@@ -87,17 +87,25 @@ header {
 }
 
 .App {
-  background-color: #1a1515;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  transition: 0.5s ease-in-out;
+}
+.App--classic {
+  background-color: #1a1515;
+}
+.App--inverse {
+  background-color: #EDE9E9;
+}
+.App--gold {
+  background-color: #F6AA1C;
 }
 
 .List {
-  background-color: #1a1515;
   display: flex;
   width: calc(100vw - 3rem);
   position: relative;
@@ -107,6 +115,16 @@ header {
   overflow-y: hidden;
   align-items: center;
   height: calc(100vh - 15px - 5rem);
+  transition: 0.5s ease-in-out;
+}
+.List--classic {
+  background-color: #1a1515;
+}
+.List--inverse {
+  background-color: #EDE9E9;
+}
+.List--gold {
+  background-color: #F6AA1C;
 }
 .List__movie {
   padding: 1rem;
@@ -122,7 +140,6 @@ header {
   height: 1.1rem;
   padding: 0.2rem 0.5rem;
   margin: 5px;
-  border: 1px solid #EDE9E9;
   border-radius: 0.8rem;
   background-color: #EDE9E9;
 }
@@ -130,9 +147,18 @@ header {
   position: relative;
 }
 .List__movie__box__img {
-  border: 1px solid #EDE9E9;
   border-radius: 7px;
   transition: 0.7s ease-in-out;
+}
+.List__movie__box__img--classic {
+  border: 1px solid #EDE9E9;
+}
+.List__movie__box__img--gold {
+  border: 1px solid #1a1515;
+}
+.List__movie__box__img--inverse {
+  filter: invert(1);
+  border: 1px solid #EDE9E9;
 }
 .List__movie__box__description {
   display: none;
@@ -146,11 +172,32 @@ header {
 .List__movie__box__description p {
   margin: 0.5rem 0;
 }
-.List__movie__box__img:hover {
+.List__movie__box__description--inverse p {
+  color: #1a1515;
+}
+.List__movie__box__img--classic:hover {
   filter: blur(20px) brightness(70%);
+}
+.List__movie__box__img--gold:hover {
+  filter: blur(20px) brightness(70%);
+}
+.List__movie__box__img--inverse:hover {
+  filter: blur(20px) brightness(70%) invert(1);
 }
 .List__movie__box__img:hover + .List__movie__box__description {
   display: block;
+}
+
+.span--classic span {
+  border: 1px solid #EDE9E9;
+}
+
+.span--inverse span {
+  border: 1px solid #1a1515;
+}
+
+.span--gold span {
+  border: 1px solid #1a1515;
 }
 
 *,
@@ -176,7 +223,7 @@ span {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1a1515;
+  background: rgba(255, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -201,9 +248,20 @@ span {
 
 .searchIcon {
   fill: none;
-  stroke: #EDE9E9;
   stroke-width: 36;
   stroke-linecap: round;
+}
+
+.searchIcon--classic {
+  stroke: #EDE9E9;
+}
+
+.searchIcon--gold {
+  stroke: #1a1515;
+}
+
+.searchIcon--inverse {
+  stroke: #1a1515;
 }
 
 .line {
@@ -219,10 +277,21 @@ span {
   max-width: 25rem;
   padding: 0.2rem 0.5rem;
   margin: 5px;
-  border: 1px solid #EDE9E9;
   border-radius: 0.8rem;
   background-color: #1a1515;
   color: #1a1515;
+}
+
+.line--classic span {
+  border: 1px solid #EDE9E9;
+}
+
+.line--inverse span {
+  border: 1px solid #1a1515;
+}
+
+.line--gold span {
+  border: 1px solid #1a1515;
 }
 
 .asterix {
@@ -232,12 +301,26 @@ span {
 .purchase {
   transition: 0.5s;
   cursor: pointer;
+  transform-origin: center;
 }
 
-.purchase:hover {
+.purchase--classic:hover {
   background-color: #F6AA1C;
   border: 1px solid #F6AA1C;
-  transform: scale(1.03);
+}
+
+.purchase--inverse:hover {
+  background-color: #F6AA1C;
+  border: 1px solid #1a1515;
+}
+
+.purchase--gold:hover {
+  background-color: #eb361a;
+  border: 1px solid #1a1515;
+}
+
+.purchase:active {
+  transform: scale(0.94);
 }
 
 input {

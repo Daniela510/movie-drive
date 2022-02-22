@@ -1,14 +1,16 @@
 import Header from './components/header/Header';
 import "./sass/style.scss"
-import MoviesContainer from './components/movies/MoviesContainer';
-import ExtendedHeader from './components/header/ExtendedHeader';
+import { useSelector } from 'react-redux'
+import MoviesContainer from './components/moviesContainer/MoviesContainer';
 
 function App() {
+ const theme = useSelector(state => state.themeState)
+ const baseName = "App App--"
+ const className = baseName.concat(theme.theme)
  
   return (
-    <div className="App">
+    <div className={className}>
      <Header />
-     <ExtendedHeader/>
      <MoviesContainer />
     </div>
   );

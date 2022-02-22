@@ -11,10 +11,18 @@
     max-width: 25rem;
     padding: 0.2rem 0.5rem;
     margin: 5px;
-    border:  1px solid var.$c-light;
     border-radius: 0.8rem;
     background-color: var.$c-dark;
     color: var.$c-dark;
+}
+.line--classic span{
+    border:  1px solid var.$c-light;
+}
+.line--inverse span{
+    border:  1px solid var.$c-dark;
+}
+.line--gold span{
+    border:  1px solid var.$c-dark;
 }
 .asterix{
     color: var.$c-light !important;

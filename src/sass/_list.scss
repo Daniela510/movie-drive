@@ -1,6 +1,7 @@
 @use "variables" as var;
 @use "mixins";
 .List {
+    background-color: var.$c-dark;
     display: flex;
     width: calc(100vw - 3rem);
     position: relative;
@@ -10,16 +11,6 @@
     overflow-y: hidden;
     align-items: center;
     height: calc(100vh - 15px - 5rem);
-    transition: 0.5s ease-in-out;
-    &--classic{
-        background-color: var.$c-dark;
-    }
-    &--inverse{
-        background-color: var.$c-light;
-    }
-    &--gold{
-        background-color: var.$c-gold;
-    }
     &__movie{
         padding: 1rem;
         &__line{
@@ -33,24 +24,16 @@
             height: 1.1rem;
             padding: 0.2rem 0.5rem;
             margin: 5px;
+            border:  1px solid var.$c-light;
             border-radius: 0.8rem;
             background-color: var.$c-light;
         }
         &__box{
             position: relative;
             &__img{
+                border: 1px solid var.$c-light;
                 border-radius:7px;
                 transition: 0.7s ease-in-out;
-                &--classic{
-                    border: 1px solid var.$c-light;
-                }
-                &--gold{
-                    border: 1px solid var.$c-dark;
-                }
-                &--inverse{
-                    filter: invert(1);
-                    border: 1px solid var.$c-light;
-                }
             }
             &__description{
                 display: none;
@@ -64,17 +47,8 @@
             &__description p{
                 margin: 0.5rem 0;
             }
-            &__description--inverse p{
-                color: var.$c-dark;
-            }
-            &__img--classic:hover{
+            &__img:hover{
                 filter: blur(20px) brightness(70%);
-            }
-            &__img--gold:hover{
-                filter: blur(20px) brightness(70%);
-            }
-            &__img--inverse:hover{
-                filter: blur(20px) brightness(70%) invert(1);
             }
             &__img:hover + &__description{
                 display: block;
@@ -82,13 +56,4 @@
 
         }
     }
-}
-.span--classic span{
-    border: 1px solid var.$c-light;
-}
-.span--inverse span{
-    border: 1px solid var.$c-dark;
-}
-.span--gold span{
-    border: 1px solid var.$c-dark;
 }

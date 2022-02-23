@@ -52,11 +52,9 @@ const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
     <h2>{movieList.error}</h2>
   ) : (
     <>
-      <ExtendedHeader filterMovies={filterMovies} allMovies={allMovies}/>
-      {console.log({ movieList })}
+      <ExtendedHeader filterMovies={filterMovies} allMovies={allMovies} cartBoolean={false}/>
       <LogoLine top={true} handleChange={handleChange} keyword={keyword} />
       <div className={classNameList}>
-        {console.log("fuck me wtf ", { searchedData })}
         {movieList &&
           searchedData &&
           searchedData.map((movie) => (

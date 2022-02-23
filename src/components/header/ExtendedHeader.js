@@ -1,6 +1,7 @@
 import React from "react";
 import { makeClassic, makeInverse, makeGold, menuClose } from "../../redux";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ExtendedHeader = ({
   menuState,
@@ -10,6 +11,7 @@ const ExtendedHeader = ({
   makeClassic,
   makeGold,
   makeInverse,
+  cartBoolean,
 }) => {
   return (
     <>
@@ -21,19 +23,26 @@ const ExtendedHeader = ({
           <ul className="extension__child">
             <li>About us</li>
             <li>Request a movie</li>
+            <li><Link to='/cart'>See your cart</Link></li>
           </ul>
-          <ul className="extension__child">
-            <li onClick={allMovies}>All Movies</li>
-            <li onClick={() => filterMovies("Rom-Com Monday")}>
-              Rom-Com Monday
-            </li>
-            <li onClick={() => filterMovies("Docu Wednesday")}>
-              Docu Wednesday
-            </li>
-            <li onClick={() => filterMovies("Horror Thursday")}>
-              Horror Thursday
-            </li>
-          </ul>
+          {cartBoolean ? (
+            <ul className="extension__child">
+            <li> <Link to='/'>Movies</Link></li>
+            </ul>
+          ) : (
+            <ul className="extension__child">
+              <li onClick={allMovies}>All Movies</li>
+              <li onClick={() => filterMovies("Rom-Com Monday")}>
+                Rom-Com Monday
+              </li>
+              <li onClick={() => filterMovies("Docu Wednesday")}>
+                Docu Wednesday
+              </li>
+              <li onClick={() => filterMovies("Horror Thursday")}>
+                Horror Thursday
+              </li>
+            </ul>
+          )}
           <ul className="extension__child">
             <li onClick={makeClassic}>Classic</li>
             <li onClick={makeInverse}>Inverted Film</li>

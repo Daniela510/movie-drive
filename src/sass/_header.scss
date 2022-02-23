@@ -27,6 +27,9 @@ header {
       font-weight: bold;
     }
   }
+  &__item a{
+    color: var.$c-dark;
+  }
   &__item:hover{
     transform: rotate(-90deg) translateY(0.5rem);
   }

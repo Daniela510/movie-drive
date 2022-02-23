@@ -1,26 +1,53 @@
 import React from "react";
-import { menuClose } from "../../redux";
+import { makeClassic, makeInverse, makeGold, menuClose } from "../../redux";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const ExtendedHeader = ({ menuState, menuClose }) => {
-  // onMouseLeave={()=>menuClose()}
+const ExtendedHeader = ({
+  menuState,
+  menuClose,
+  filterMovies,
+  allMovies,
+  makeClassic,
+  makeGold,
+  makeInverse,
+  cartBoolean,
+}) => {
   return (
     <>
       {menuState ? (
-        <div className="extension extension--active"  onMouseLeave={()=>menuClose()}>
-          <input
-            className="extension__child"
-            type="text"
-            defaultValue="Search by title"
-          />
-
+        <div
+          className="extension extension--active"
+          onMouseLeave={() => menuClose()}
+        >
           <ul className="extension__child">
-            <li>Rom-Com Monday</li>
-            <li>Docu Wednesday</li>
-            <li>Horror Thrusday</li>
+            <li>About us</li>
+            <li>Request a movie</li>
+            <li><Link to='/cart'>See your cart</Link></li>
           </ul>
-          <div className="style-prop" >Style prop</div>
-          <div className="style-prop" >Style prop</div>
+          {cartBoolean ? (
+            <ul className="extension__child">
+            <li> <Link to='/'>Movies</Link></li>
+            </ul>
+          ) : (
+            <ul className="extension__child">
+              <li onClick={allMovies}>All Movies</li>
+              <li onClick={() => filterMovies("Rom-Com Monday")}>
+                Rom-Com Monday
+              </li>
+              <li onClick={() => filterMovies("Docu Wednesday")}>
+                Docu Wednesday
+              </li>
+              <li onClick={() => filterMovies("Horror Thursday")}>
+                Horror Thursday
+              </li>
+            </ul>
+          )}
+          <ul className="extension__child">
+            <li onClick={makeClassic}>Classic</li>
+            <li onClick={makeInverse}>Inverted Film</li>
+            <li onClick={makeGold}>Gold</li>
+          </ul>
         </div>
       ) : (
         <div className="extension extension--hidden" />
@@ -37,6 +64,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     menuClose: () => dispatch(menuClose()),
+    makeClassic: () => dispatch(makeClassic()),
+    makeGold: () => dispatch(makeGold()),
+    makeInverse: () => dispatch(makeInverse()),
   };
 };
 

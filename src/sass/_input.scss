@@ -1,0 +1,8 @@
+@use "variables" as var;
+input{
+    padding: 2px 5px;
+    border-radius: 1rem;
+    border: 1px solid var.$c-dark;
+    background-color: var.$c-light;
+    color: var.$c-dark;
+  }

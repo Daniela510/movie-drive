@@ -1,0 +1,50 @@
+@use "variables" as var;
+.cart {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 2rem);
+  position: relative;
+  left: 3rem;
+  padding-left: 1rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: calc(100vh - 15px - 5rem);
+  &__type--classic{
+    color: var.$c-light;
+  }
+  &__type--gold{
+    color: var.$c-dark;
+  }
+  &__type--inverse{
+    color: var.$c-dark;
+  }
+  &__container {
+    margin: 1rem 0;
+    width: calc(100vw - 6rem);
+    display: grid;
+    grid-template-columns: repeat(4, 25% [col-start]);
+    align-items: center;
+    border-radius: 2rem;
+    &--classic{
+       border: 1px solid var.$c-light;
+    }
+    &--gold{
+        border: 1px solid var.$c-dark;
+    }
+    &--inverse{
+        border: 1px solid var.$c-dark;
+    }
+    &__item{
+        margin: 1rem;
+        &--classic{
+            color: var.$c-light;
+        }
+        &--inverse{
+            color: var.$c-dark;
+        }
+        &--gold{
+            color: var.$c-dark;
+        }
+    }
+  }
+}

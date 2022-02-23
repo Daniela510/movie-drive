@@ -1,10 +1,42 @@
 @use "variables" as var;
 
-.purchase{
-    transition: 0.5s;
+button {
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  margin: 5px;
+  color: var.$c-dark;
 }
-.purchase:hover{
-background-color: var.$c-gold;
-border: 1px solid var.$c-gold;
-transform: scale(1.03);
+.purchase {
+  transition: 0.5s;
+  cursor: pointer;
+  transform-origin: center;
+}
+.purchase--classic:hover {
+  background-color: var.$c-gold;
+  border: 1px solid var.$c-gold;
+}
+.purchase--inverse:hover {
+  background-color: var.$c-gold;
+  border: 1px solid var.$c-dark;
+}
+.purchase--gold:hover {
+  background-color: var.$c-red;
+  border: 1px solid var.$c-dark;
+}
+.purchase:active {
+  transform: scale(0.94);
+}
+.goHome {
+  border-radius: 0.8rem;
+  transition: 0.5s;
+  transform-origin: center;
+  background-color: var.$c-light;
+  border: 1px solid var.$c-dark;
+}
+.remove {
+  background-color: var.$c-red;
+  border-radius: 0.8rem;
+  border: 1px solid var.$c-dark;
+  max-width: 10rem;
+  justify-self: end;
 }

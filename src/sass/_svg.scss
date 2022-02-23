@@ -1,34 +1,18 @@
 @use "variables" as var;
 
-.ticket {
-  &__big {
-    fill: var.$c-light;
-  }
-}
-.ticket:hover{
-    transform-origin: center;
-    transform: scale(1.2);
-}
-.circle {
-  &--active {
-    fill: var.$c-red;
-  }
-  &--passive {
-    fill: none;
-  }
-}
-
-.searchIcon {
-  fill: none;
-  stroke-width: 36;
-  stroke-linecap: round;
-}
-.searchIcon--classic {
-  stroke: var.$c-light;
-}
-.searchIcon--gold {
-  stroke: var.$c-dark;
-}
-.searchIcon--inverse {
-  stroke: var.$c-dark;
+.ticket{
+    
+    &__big{
+        fill: var.$c-light;
+    }
+    &__text{
+        transform: translate(94.04px 150.77px);
+        font-size:157.87px;
+        font-family:sans-serif;
+    }
+    &__rect{
+        fill:none;
+        stroke:var.$c-dark;
+        stroke-miterlimit:10
+    }
 }

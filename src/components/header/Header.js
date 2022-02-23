@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { menuOpen } from "../../redux";
-import { Link } from "react-router-dom";
 
 const Header = ({ menuOpen}) => {
   let active = true;
   return (
     <header  onMouseEnter={()=>menuOpen()}>
       <ul className="nav">
-      <li className="nav__item">About Us</li>
-        <li className="nav__item nav__item--active"><Link to='/'>Movies</Link></li>
-        <li className="nav__item">Theme</li>
+        <li className="nav__item">Search</li>
+        <li className="nav__item nav__item--active">Movies</li>
+        <li className="nav__item">About Us</li>
+        <li className="nav__item">Request</li>
       </ul>
     </header>
   );

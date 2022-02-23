@@ -1,34 +1,26 @@
-import Header from './components/header/Header'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/header/Header';
+import { useEffect } from "react";
 import "./sass/style.scss"
-import { useSelector } from 'react-redux'
-import MoviesContainer from './components/moviesContainer/MoviesContainer';
-import Cart from './components/Cart/Cart';
+import MoviesContainer from './components/movies/MoviesContainer';
+import ExtendedHeader from './components/header/ExtendedHeader';
 
 function App() {
- const theme = useSelector(state => state.themeState)
- const baseName = "App App--"
- const className = baseName.concat(theme.theme)
- 
+  useEffect(() => {
+    async function logMyAPI() {
+      let response = await fetch('https://my-json-server.typicode.com/Daniela510/demo/list')
+      response = await response.json()
+      // console.log(response)
+    }
+
+    logMyAPI()
+  }, []);
+
   return (
-    <BrowserRouter>
-    <div className={className}>
-      <Routes>
-      <Route path='/' exact element={
-        <>
+    <div className="App">
      <Header />
+     <ExtendedHeader/>
      <MoviesContainer />
-     </>
-    }/>
-    <Route path='/cart' element={
-     <>
-     <Header />
-    <Cart/>
-    </>
-    }/>
-     </Routes>
     </div>
-    </BrowserRouter>
   );
 }
 

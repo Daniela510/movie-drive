@@ -1,0 +1,4 @@
+export const ABOUT_OPEN = "ABOUT_OPEN";
+export const ABOUT_CLOSE = "ABOUT_CLOSE";
+export const REQUESTS_OPEN = "REQUESTS_OPEN";
+export const REQUESTS_CLOSE = "REQUESTS_CLOSE";

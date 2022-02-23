@@ -12,7 +12,7 @@ const Cart = () => {
   const classNameItem = baseNameItem.concat(theme)
   const baseNameContainer = "cart__container cart__container--"
   const classNameContainer = baseNameContainer.concat(theme)
-  const baseCartType = "cart__type--"
+  const baseCartType = "cart__type cart__type--"
   const classNameCartType = baseCartType.concat(theme)
     return (
     <>

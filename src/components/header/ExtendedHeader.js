@@ -1,5 +1,5 @@
 import React from "react";
-import { makeClassic, makeInverse, makeGold, menuClose } from "../../redux";
+import { makeClassic, makeInverse, makeGold, menuClose, aboutOpen, requestsOpen, aboutClose, requestsClose } from "../../redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -12,17 +12,21 @@ const ExtendedHeader = ({
   makeGold,
   makeInverse,
   cartBoolean,
+  aboutOpen,
+  requestsOpen,
+  aboutClose,
+  requestsClose
 }) => {
   return (
     <>
       {menuState ? (
         <div
           className="extension extension--active"
-          onMouseLeave={() => menuClose()}
+          onMouseLeave={menuClose}
         >
           <ul className="extension__child">
-            <li>About us</li>
-            <li>Request a movie</li>
+            <li onClick={() => {aboutOpen(); requestsClose()}}>About us</li>
+            <li onClick={() => {requestsOpen(); aboutClose()} }>Request a movie</li>
             <li><Link to='/cart'>See your cart</Link></li>
           </ul>
           {cartBoolean ? (
@@ -67,6 +71,10 @@ const mapDispatchToProps = (dispatch) => {
     makeClassic: () => dispatch(makeClassic()),
     makeGold: () => dispatch(makeGold()),
     makeInverse: () => dispatch(makeInverse()),
+    aboutOpen: () => dispatch(aboutOpen()),
+    requestsOpen: () => dispatch(requestsOpen()),
+    aboutClose: () => dispatch(aboutClose()),
+    requestsClose: () => dispatch(requestsClose())
   };
 };
 

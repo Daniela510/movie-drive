@@ -1,0 +1,32 @@
+@use "variables" as var;
+.about {
+  position: fixed;
+  right: -3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96vh;
+  background-color: var.$c-light;
+  width: 20rem;
+  padding: 1rem 5rem 1rem 1.5rem;
+  transition: 1s ease-in-out;
+  border: 1px solid var.$c-dark;
+  border-radius: 2rem;
+  &--active {
+    transform: translateX(0);
+  }
+  &--hidden {
+    transform: translateX(24rem);
+  }
+  &__child {
+    color: var.$c-dark;
+    &__title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+  &__child p {
+    color: var.$c-dark;
+  }
+}

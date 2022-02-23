@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { menuOpen } from "../../redux";
+import { aboutOpen, menuOpen } from "../../redux";
 import { Link } from "react-router-dom";
 
-const Header = ({ menuOpen}) => {
-  let active = true;
+const Header = ({ menuOpen, aboutOpen}) => {
   return (
-    <header  onMouseEnter={()=>menuOpen()}>
+    <header onMouseEnter={()=>menuOpen()}>
       <ul className="nav">
-      <li className="nav__item">About Us</li>
+      <li className="nav__item" onClick={aboutOpen}>About Us</li>
         <li className="nav__item nav__item--active"><Link to='/'>Movies</Link></li>
         <li className="nav__item">Theme</li>
       </ul>
@@ -24,6 +23,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     menuOpen: () => dispatch(menuOpen()),
+    aboutOpen: () => dispatch(aboutOpen())
   };
 };
 

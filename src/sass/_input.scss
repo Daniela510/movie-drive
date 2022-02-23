@@ -6,3 +6,53 @@ input{
     background-color: var.$c-light;
     color: var.$c-dark;
   }
+  .requests {
+    position: fixed;
+    right: -3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 96vh;
+    background-color: var.$c-light;
+    width: 20rem;
+    padding: 1rem 5rem 1rem 1.5rem;
+    transition: 1s ease-in-out;
+    border: 1px solid var.$c-dark;
+    border-radius: 2rem;
+    &--active {
+      transform: translateX(0);
+    }
+    &--hidden {
+      transform: translateX(24rem);
+    }
+    &__child {
+      color: var.$c-dark;
+      margin: 1rem;
+      &--title {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+      &--title .question {
+        width: 16rem;
+      }
+    }
+  &__child input{
+    color: var.$c-dark;
+    background-color: white;
+    padding: 3px 6px; 
+  }
+  &__child textarea{
+    color: var.$c-dark;
+    background-color: white;
+    height: 6rem;
+    width: 18rem;
+    margin: 1rem 0;
+    padding: 3px 6px; 
+    border: 1px solid var.$c-dark;
+    border-radius: 0.8rem;
+  }
+    &__child p {
+      color: var.$c-dark;
+    }
+  }

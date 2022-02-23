@@ -9,6 +9,9 @@
   overflow-x: scroll;
   overflow-y: hidden;
   height: calc(100vh - 15px - 5rem);
+  &__type{
+    padding: 0 0 1rem 0.5rem;
+  }
   &__type--classic{
     color: var.$c-light;
   }

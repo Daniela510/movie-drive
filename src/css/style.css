@@ -351,11 +351,91 @@ button {
   justify-self: end;
 }
 
+.close-about {
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  border-radius: 0.8rem;
+  border: 1px solid #1a1515;
+  padding: 0.2rem 0.5rem;
+  font-weight: normal;
+}
+
+.close-about:hover {
+  background-color: #eb361a;
+}
+
+.submit {
+  width: 6rem;
+}
+
+.submit:hover {
+  background-color: #F6AA1C;
+  transform-origin: center;
+  transform: scale(1.05);
+}
+
+.submit:active {
+  background-color: #F6AA1C;
+  transform-origin: center;
+  transform: scale(0.95);
+}
+
 input {
   padding: 2px 5px;
   border-radius: 1rem;
   border: 1px solid #1a1515;
   background-color: #EDE9E9;
+  color: #1a1515;
+}
+
+.requests {
+  position: fixed;
+  right: -3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 96vh;
+  background-color: #EDE9E9;
+  width: 20rem;
+  padding: 1rem 5rem 1rem 1.5rem;
+  transition: 1s ease-in-out;
+  border: 1px solid #1a1515;
+  border-radius: 2rem;
+}
+.requests--active {
+  transform: translateX(0);
+}
+.requests--hidden {
+  transform: translateX(24rem);
+}
+.requests__child {
+  color: #1a1515;
+  margin: 1rem;
+}
+.requests__child--title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.requests__child--title .question {
+  width: 16rem;
+}
+.requests__child input {
+  color: #1a1515;
+  background-color: white;
+  padding: 3px 6px;
+}
+.requests__child textarea {
+  color: #1a1515;
+  background-color: white;
+  height: 6rem;
+  width: 18rem;
+  margin: 1rem 0;
+  padding: 3px 6px;
+  border: 1px solid #1a1515;
+  border-radius: 0.8rem;
+}
+.requests__child p {
   color: #1a1515;
 }
 
@@ -369,6 +449,9 @@ input {
   overflow-x: scroll;
   overflow-y: hidden;
   height: calc(100vh - 15px - 5rem);
+}
+.cart__type {
+  padding: 0 0 1rem 0.5rem;
 }
 .cart__type--classic {
   color: #EDE9E9;
@@ -406,6 +489,38 @@ input {
   color: #1a1515;
 }
 .cart__container__item--gold {
+  color: #1a1515;
+}
+
+.about {
+  position: fixed;
+  right: -3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96vh;
+  background-color: #EDE9E9;
+  width: 20rem;
+  padding: 1rem 5rem 1rem 1.5rem;
+  transition: 1s ease-in-out;
+  border: 1px solid #1a1515;
+  border-radius: 2rem;
+}
+.about--active {
+  transform: translateX(0);
+}
+.about--hidden {
+  transform: translateX(24rem);
+}
+.about__child {
+  color: #1a1515;
+}
+.about__child__title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.about__child p {
   color: #1a1515;
 }
 

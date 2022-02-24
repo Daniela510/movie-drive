@@ -1,8 +1,18 @@
 @use "variables" as var;
+@font-face {
+    font-family: 'Telegraf';
+    font-weight: bold;
+    src: url('../fonts/Telegraf-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Telegraf';
+    font-weight:normal;
+    src: url('../fonts/Telegraf-Regular.ttf') format('truetype');
+}
 *,
 *::after,
 *::before {
-    font-family: sans-serif;
+    font-family: 'Telegraf', sans-serif;
     color: var.$c-light;
     font-size: 16px;
 }

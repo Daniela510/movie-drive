@@ -59,7 +59,7 @@ const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
           searchedData &&
           searchedData.map((movie) => (
             <div key={movie.id} className="List__movie">
-              <TitleLine movie={movie} />
+              <TitleLine movie={movie} filterMovies={filterMovies}/>
               <ImageBox movie={movie} />
               <DateLine movie={movie} />
             </div>

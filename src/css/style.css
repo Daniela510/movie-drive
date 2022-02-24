@@ -203,10 +203,20 @@ header {
   border: 1px solid #1a1515;
 }
 
+@font-face {
+  font-family: "Telegraf";
+  font-weight: bold;
+  src: url("../fonts/Telegraf-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Telegraf";
+  font-weight: normal;
+  src: url("../fonts/Telegraf-Regular.ttf") format("truetype");
+}
 *,
 *::after,
 *::before {
-  font-family: sans-serif;
+  font-family: "Telegraf", sans-serif;
   color: #EDE9E9;
   font-size: 16px;
 }
@@ -378,6 +388,10 @@ button {
   background-color: #F6AA1C;
   transform-origin: center;
   transform: scale(0.95);
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 input {

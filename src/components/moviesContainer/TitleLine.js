@@ -1,9 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LineGaps from "./LineGaps";
 
-const TitleLine = ({ movie }) => {
-  
+const TitleLine = ({ movie, filterMovies }) => {
   const theme = useSelector(state => state.themeState)
   const baseNameLine = "List__movie__line span--"
   const classNameLine = baseNameLine.concat(theme.theme)
@@ -20,7 +19,7 @@ const TitleLine = ({ movie }) => {
           <span>{movie.year}</span> <span /> 
         </>
       )}
-     <LineGaps bottom={false}/> <span>{movie.day}</span> <span />
+     <LineGaps bottom={false}/> <span onClick={() => filterMovies(movie.day)} className="pointer">{movie.day}</span> <span />
     </p>
   );
 };

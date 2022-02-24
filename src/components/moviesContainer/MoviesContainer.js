@@ -10,8 +10,8 @@ import TitleLine from "./TitleLine";
 const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
   const [searchedData, setSearchedData] = useState([]);
   const [keyword, setKeyword] = useState("Search by title");
-  const baseNameList = "List List--"
-  const classNameList = baseNameList.concat(theme.theme)
+  const baseNameList = "List List--";
+  const classNameList = baseNameList.concat(theme.theme);
 
   useEffect(() => {
     fetchMovies();
@@ -32,18 +32,16 @@ const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
     setSearchedData(searchedData);
   };
   const filterMovies = (clickedDay) => {
-      console.log(clickedDay);
+    console.log(clickedDay);
     let filteredData = movieList.movies.filter((movie) => {
-        return (
-          movie.day
-            .toLowerCase()
-            .search(clickedDay.toLocaleLowerCase()) !== -1
-        );
+      return (
+        movie.day.toLowerCase().search(clickedDay.toLocaleLowerCase()) !== -1
+      );
     });
     setSearchedData(filteredData);
   };
   const allMovies = () => {
-      setSearchedData(movieList.movies)
+    setSearchedData(movieList.movies);
   };
 
   return movieList.loading ? (
@@ -52,14 +50,18 @@ const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
     <h2>{movieList.error}</h2>
   ) : (
     <>
-      <ExtendedHeader filterMovies={filterMovies} allMovies={allMovies} cartBoolean={false}/>
+      <ExtendedHeader
+        filterMovies={filterMovies}
+        allMovies={allMovies}
+        cartBoolean={false}
+      />
       <LogoLine top={true} handleChange={handleChange} keyword={keyword} />
       <div className={classNameList}>
         {movieList &&
           searchedData &&
           searchedData.map((movie) => (
             <div key={movie.id} className="List__movie">
-              <TitleLine movie={movie} filterMovies={filterMovies}/>
+              <TitleLine movie={movie} filterMovies={filterMovies} />
               <ImageBox movie={movie} />
               <DateLine movie={movie} />
             </div>
@@ -73,7 +75,7 @@ const MoviesContainer = ({ movieList, fetchMovies, theme }) => {
 const mapStateToProps = (state) => {
   return {
     movieList: state.movieList,
-    theme: state.themeState
+    theme: state.themeState,
   };
 };
 const mapDispatchToProps = (dispatch) => {

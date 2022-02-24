@@ -1,5 +1,14 @@
 import React from "react";
-import { makeClassic, makeInverse, makeGold, menuClose, aboutOpen, requestsOpen, aboutClose, requestsClose } from "../../redux";
+import {
+  makeClassic,
+  makeInverse,
+  makeGold,
+  menuClose,
+  aboutOpen,
+  requestsOpen,
+  aboutClose,
+  requestsClose,
+} from "../../redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -15,23 +24,39 @@ const ExtendedHeader = ({
   aboutOpen,
   requestsOpen,
   aboutClose,
-  requestsClose
+  requestsClose,
 }) => {
   return (
     <>
       {menuState ? (
-        <div
-          className="extension extension--active"
-          onMouseLeave={menuClose}
-        >
+        <div className="extension extension--active" onMouseLeave={menuClose}>
           <ul className="extension__child">
-            <li onClick={() => {aboutOpen(); requestsClose()}}>About us</li>
-            <li onClick={() => {requestsOpen(); aboutClose()} }>Request a movie</li>
-            <li><Link to='/cart'>See your cart</Link></li>
+            <li
+              onClick={() => {
+                aboutOpen();
+                requestsClose();
+              }}
+            >
+              About us
+            </li>
+            <li
+              onClick={() => {
+                requestsOpen();
+                aboutClose();
+              }}
+            >
+              Request a movie
+            </li>
+            <li>
+              <Link to="/cart">See your cart</Link>
+            </li>
           </ul>
           {cartBoolean ? (
             <ul className="extension__child">
-            <li> <Link to='/'>Movies</Link></li>
+              <li>
+                {" "}
+                <Link to="/">Movies</Link>
+              </li>
             </ul>
           ) : (
             <ul className="extension__child">
@@ -74,7 +99,7 @@ const mapDispatchToProps = (dispatch) => {
     aboutOpen: () => dispatch(aboutOpen()),
     requestsOpen: () => dispatch(requestsOpen()),
     aboutClose: () => dispatch(aboutClose()),
-    requestsClose: () => dispatch(requestsClose())
+    requestsClose: () => dispatch(requestsClose()),
   };
 };
 

@@ -2,12 +2,12 @@ import SearchIcon from "../svgComponents/SearchIcon";
 import Ticket from "../svgComponents/Ticket";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const LogoLine = ({ top, handleChange, keyword }) => {
   const theme = useSelector((state) => state.themeState.theme);
   const cart = useSelector((state) => state.cartState.cart);
-  const [ticketClassName, setTicketClassName] = useState('circle--passive')
+  const [ticketClassName, setTicketClassName] = useState("circle--passive");
   const baseNameLine = "line line--";
   const classNameLine = baseNameLine.concat(theme);
   const baseNameIcon = "searchIcon searchIcon--";
@@ -15,10 +15,10 @@ const LogoLine = ({ top, handleChange, keyword }) => {
   useEffect(() => {
     if (cart.length > 0) {
       console.log(cart);
-      setTicketClassName('circle--active')
+      setTicketClassName("circle--active");
     } else {
       console.log("cart is empty");
-      setTicketClassName('circle--passive')
+      setTicketClassName("circle--passive");
     }
   }, [cart]);
 
@@ -86,7 +86,13 @@ const LogoLine = ({ top, handleChange, keyword }) => {
           <span>.</span>
         </>
       )}
-      {top ?  <Link to="/cart"><Ticket classname={ticketClassName} /></Link> : <span>.</span>}
+      {top ? (
+        <Link to="/cart">
+          <Ticket classname={ticketClassName} />
+        </Link>
+      ) : (
+        <span>.</span>
+      )}
     </p>
   );
 };

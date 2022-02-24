@@ -15,16 +15,16 @@ const reducer = (state = initialState, action) => {
         }
       });
       if (!alreadyInCart) {
-          newCart.push({...action.payload, iterations: 1})
+        newCart.push({ ...action.payload, iterations: 1 });
       }
       return {
         cart: newCart,
       };
     case REMOVE_CART:
-        //This would remove all of the same movie
+      //This would remove all of the same movie
       let newCart3 = state.cart.filter((item) => action.payload.id !== item.id);
-        //this decreases the number
-      let newCart2 =[...state.cart];
+      //this decreases the number
+      let newCart2 = [...state.cart];
       newCart2.forEach((item, index) => {
         if (item.id === action.payload.id) {
           if (item.iterations > 1) {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
             newCart2.splice(index, 1);
           }
         }
-      })
+      });
       return {
         cart: newCart2,
       };
